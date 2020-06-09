@@ -12,21 +12,21 @@ It is divided into three parts.
 
    This example goes into more detail covering the following:
 
-  *Tasks, tasksets and sequential tasksets  
-  *Making custom functions  
-  *Naming requests  
-  *Dealing with embedded resources  
-  *Managing cookies and headers  
+   Tasks, tasksets and sequential tasksets  
+   Making custom functions  
+   Naming requests  
+   Dealing with embedded resources  
+   Managing cookies and headers  
 
 3. [Other features](./other_features.md)
 
    This part looks at:
 
-  *Proxies  
-  *Pre and post processors  
-  *Testing other protocols  
-  *CSV data  
-  *Monitoring  
-  *Distributed testing
+   Proxies  
+   Pre and post processors  
+   Testing other protocols  
+   CSV data  
+   Monitoring  
+   Distributed testing
 
 If there is a feature in JMeter you would like to know how to do in Locust, raise an [issue](https://github.com/howardosborne/locust_for_jmeter_users/issues).
