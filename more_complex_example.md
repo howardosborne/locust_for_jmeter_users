@@ -50,6 +50,8 @@ Add a name parameter to the request
 ## Dealing with embedded resources
 When requesting a page, you may also want to include requests to embedded resources. This doesn’t come as a standard feature in Locust, but there is a plugin in [locust plugins](https://github.com/SvenskaSpel/locust-plugins/).
 
+Like Locust, Locust plugins can be installed using pip
+
 ```python
 pip install locust-plugins
 ```
@@ -72,7 +74,7 @@ A similar approach can be taken for headers, however, in this case, the headers 
 response = self.client.post(self.api_host + "/viewcart", payload, headers={"Content-Type": "application/json"},  name="08 /viewcart")
 ```
 
-*To learn more about how cookies and headers are managed and manipulated, see https://requests.readthedocs.io/en/master/ 
+*To learn more about how cookies and headers are managed and manipulated, see the [requests page](https://requests.readthedocs.io/en/master/)
 
 ## Assertions
 Assertions are made by setting catch_response to True when making a request and then evaluating the response. For example:

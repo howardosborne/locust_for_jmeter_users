@@ -68,12 +68,12 @@ A nice feature of Locust is being able to dynamically change the number of concu
 ## Analysing results
 In JMeter, we have a number of ways of viewing the results of a test. We can add a listener to view results in the GUI or output to a default listener file which can be used to produce a report or imported to other reporting tools.
 
-The results produced in Locust, in addition to the runtime charts, there are three csv files produced.
+In addition to the runtime charts, Locust produces three csv files.
 ![Download Data](./images/download_data.png "Download Data")
 
-Request statistics CSV is broadly similar to an aggregate listener in JMeter.
+Request statistics CSV is broadly similar to an aggregate listener in JMeter, providing summary information for each task.
 
-The failures and exceptions CSVs, provide details of, unsurprisingly, failures and exceptions.
+The failures and exceptions CSVs provide details of, unsurprisingly, failures and exceptions.
 
 To get a report similar to the default JMeter listener, with a record for each request made, you can use the jmeter listener plugin from [locust-plugins](https://github.com/SvenskaSpel/locust-plugins/blob/master/locust_plugins/jmeter_listener.py).
 

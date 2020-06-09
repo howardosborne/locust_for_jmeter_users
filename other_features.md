@@ -1,6 +1,7 @@
 ## Setting a proxy
 Some tests need to use a proxy server.
-However, you may wish to use a tool such as Fiddler or Charles to analyse and debug the traffic between your test and the server. In which case, you would need to set the tool as a proxy.
+
+However, this is not the only reason for changing your proxy settings. Tools such as [Fiddler](https://www.telerik.com/fiddler) or [Charles](https://www.charlesproxy.com/) can help analyse and debug the traffic between your test and the server. To do this, you would need to set the tool as a proxy. Fiddler by default run on port 8888.
 
 To set a proxy in Locust for all requests, add the following lines:
 ```python
@@ -37,7 +38,7 @@ my_event.add_listener(on_my_event)
 ```
 
 ## Other protocols
-There is a growing list of other protocols supported in plugins but a nice feature of Locust is that you can just use the User class and then can test pretty much anything. Here is an example testing a made-up ‘WidgetMaker’:
+There is a growing list of other protocols supported in [locust plugins](https://github.com/SvenskaSpel/locust-plugins/) but a nice feature of Locust is that you can just use the User class and then can test pretty much anything. Here is an example testing a made-up ‘WidgetMaker’:
 
 ```python
 class MyHybridUser(User):
@@ -63,6 +64,9 @@ class WidgetMaker:
         time.sleep(random.randint(1,5))
         return random.choices(population=self.widget_quality,weights=(80,20),k=1)[0]
 ```
+
+The results of running this look like this:
+![Widget Maker Results](./images/locust_hybrid_results.png "Widget Maker Results")
 
 ## Variables and scope
 A common frustration with JMeter is the way variables (and parameters) are stored and used. Because this is plain old python, you can store and retrieve variables of any type, in any format with any level of scope.
