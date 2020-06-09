@@ -1,16 +1,14 @@
 # A guide to Locust for JMeter users
 
-This is a short guide for [JMeter](https://jmeter.apache.org/) users who is interested in learning about [Locust](https://locust.io/).
-
-It is divided into three parts.
+This is a short guide for [JMeter](https://jmeter.apache.org/) users who is interested in learning about [Locust](https://locust.io/) and is divided into three parts.
 
 1. [A simple example](./simple_example.md)
 
-   This example covers the absolute basics of making and running a test.
+   ...goes through the absolute basics of making and running a test.
 
 2. [A more complex example](./more_complex_example.md)
 
-   This example goes into more detail covering the following:
+   ...goes into more detail covering the following:
 
    Tasks, tasksets and sequential tasksets  
    Making custom functions  
