@@ -61,7 +61,8 @@ As the test progresses, we can monitor progress in the statistics, charts, failu
 
 ![charts](./images/vscode_web_charts.png "charts")
 
-*One nice feature of Locust is being able to dynamically change the number of concurrent users.
+A nice feature of Locust is being able to dynamically change the number of concurrent users. We can do this by clicking the 'Edit' link and setting the new values.
+
 ![change user count](./images/change_user_count.png "change user count")
 
 ## Analysing results

@@ -64,12 +64,12 @@ class WidgetMaker:
         return random.choices(population=self.widget_quality,weights=(80,20),k=1)[0]
 ```
 
-## Variables
+## Variables and scope
 A common frustration with JMeter is the way variables (and parameters) are stored and used. Because this is plain old python, you can store and retrieve variables of any type, in any format with any level of scope.
 
 If you are new to python, it is well worth taking some time to learn about variable scoping. Here is a nice [walkthrough](https://www.w3schools.com/python/python_scope.asp).
 
-##CSV data
+## CSV data
 In JMeter you may well have driven your tests using the CSV Data Set Config.
 To get the same functionality in Locust you have a couple of options.
 First there is a csv plugin available at [locust-plugins](https://github.com/SvenskaSpel/locust-plugins/). This plugin makes use of the [csv library](https://docs.python.org/3/library/csv.html) and provides an iterator to loop through the csv file and when it reaches the end of the file, return to the beginning.
@@ -97,7 +97,7 @@ class CSVReader:
             self.file.seek(0, 0)
             return next(self.reader)
 ```
-If you are looking for different behaviour, such as stopping the test at the end of the file, then you can do this yourself quite easily. Using the csv.DictReader allows field names to be used whih wil default to the first line of the csv file.
+If you are looking for different behaviour, such as stopping the test at the end of the file, then you can do this yourself quite easily. Using the csv.DictReader allows field names to be used which will default to the first line of the csv file.
 
 ```python
 import csv
