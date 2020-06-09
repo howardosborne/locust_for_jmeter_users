@@ -1,6 +1,6 @@
 In this example we are going to buy a product from the [demo blaze shop](https://www.demoblaze.com) and in doing so, learn some more about how to do things in Locust.
 
-*The code for this example is [here](./examples/more_complex_example.py)
+*The full code for this example is [here](./examples/more_complex_example.py)
 
 ## Tasks, tasksets and sequential tasksets
 

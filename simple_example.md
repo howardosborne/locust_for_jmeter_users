@@ -38,7 +38,7 @@ Use the developer tools in your browser to capture what you need and save the re
 
 Convert the har file to a locust file using https://pypi.org/project/har-transformer/
 
-You also might want to consider using a tool like Charles or Fiddler to capture traffic and analyse the requests and responses.
+You also might want to consider using a tool like [Fiddler](https://www.telerik.com/fiddler) or [Charles](https://www.charlesproxy.com/) to capture traffic and analyse the requests and responses.
 
 Now let’s look at running the test.
 
@@ -75,7 +75,7 @@ Request statistics CSV is broadly similar to an aggregate listener in JMeter, pr
 
 The failures and exceptions CSVs provide details of, unsurprisingly, failures and exceptions.
 
-However, if you have been using JMeter for a while, you may have already developed dashboards and reports based on the JMeter format and do not wish to throw that hard work away.
+However, if you have been using JMeter for a while, you may have already developed dashboards and reports based on the JMeter format and wish to reuse them.
 
 To get a report similar to the default JMeter listener, with a record for each request made, you can use the jmeter listener plugin from [locust-plugins](https://github.com/SvenskaSpel/locust-plugins/blob/master/locust_plugins/jmeter_listener.py). Note: This does not report exit codes (a current limitation in Locust event reporting). If you wish to get the JMeter format with event codes, try [this](https://github.com/howardosborne/locust_jmeter_listener)
 
