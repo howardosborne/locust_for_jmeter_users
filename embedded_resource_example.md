@@ -1,6 +1,6 @@
 ## How to include embedded resources in Locust manually
 
-If you don't want to use the EmbeddedResourceManager from [locust-plugins], here is an example of how to do it yourself.
+If you don't want to use the EmbeddedResourceManager from [locust plugins](https://github.com/SvenskaSpel/locust-plugins/), here is an example of how to do it yourself.
 
 In the example below, we will capture the most commonly referenced resources using the [lxml library](https://lxml.de/) which allows us to find elements by xPath.
 
