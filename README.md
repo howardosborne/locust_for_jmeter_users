@@ -10,7 +10,7 @@ It is divided into three parts.
 
 2. [A more complex example](./more_complex_example.md)
 
-   This goes into more detail covering the following:
+   This goes into more detail covering the following:  
    Tasks, tasksets and sequential tasksets  
    Making custom functions  
    Naming requests  
