@@ -9,12 +9,13 @@ A JMeter example might look like this with a thread group, a sampler and a timer
 
 ![JMeter IDE](./images/jmeter_ide.png "JMeter IDE")
 
-To do the same thing with Locust you can use any IDE or text editor such as Notepad or vi. In this example, Visual Studio Code is being used.
-
-![VSCode IDE](./images/vscode_ide.png "VSCode IDE")
+To do the same thing with Locust you can use any IDE or text editor such as Notepad or vi.
 
 Our equivalent HelloWorld test using Locust looks like this:
+
 ```python
+from locust import HttpUser, task, between
+
 class HelloWorld(HttpUser):
     wait_time = between(5, 15)
 
@@ -30,7 +31,8 @@ We also added a wait_time which is like a Uniform Random Timer.
 
 ### Recording tests
 If you are looking for the recorder in Locust, there isn’t one.
-However if, like me, you avoid using recorders then this isn’t really a downside. But if you really do want to get a recording as a starting point, then there is a simple way of doing this.
+
+However, if you really do want to get a recording as a starting point, then there is a simple way of doing this.
 
 Use the developer tools in your browser to capture what you need and save the recording as a har file.
 

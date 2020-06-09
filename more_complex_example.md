@@ -55,6 +55,7 @@ Like Locust, Locust plugins can be installed using pip
 ```python
 pip install locust-plugins
 ```
+If you would like to learn how to include resources without using the plugin, an explanation is provided [here](./embedded_resource_example.md)
 
 ## Managing cookies and headers
 Cookies are managed for you by default, which is like having the cookie manager in JMeter always included.

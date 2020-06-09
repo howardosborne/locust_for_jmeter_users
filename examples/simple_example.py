@@ -1,4 +1,4 @@
-from locust import HttpUser, User, task, between
+from locust import HttpUser, task, between
 
 class HelloWorld(HttpUser):
     wait_time = between(5, 15)
