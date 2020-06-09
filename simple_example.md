@@ -75,6 +75,8 @@ Request statistics CSV is broadly similar to an aggregate listener in JMeter, pr
 
 The failures and exceptions CSVs provide details of, unsurprisingly, failures and exceptions.
 
-To get a report similar to the default JMeter listener, with a record for each request made, you can use the jmeter listener plugin from [locust-plugins](https://github.com/SvenskaSpel/locust-plugins/blob/master/locust_plugins/jmeter_listener.py).
+However, if you have been using JMeter for a while, you may have already developed dashboards and reports based on the JMeter format and do not wish to throw that hard work away.
+
+To get a report similar to the default JMeter listener, with a record for each request made, you can use the jmeter listener plugin from [locust-plugins](https://github.com/SvenskaSpel/locust-plugins/blob/master/locust_plugins/jmeter_listener.py). Note: This does not report exit codes (a current limitation in Locust event reporting). If you wish to get the JMeter format with event codes, try [this](https://github.com/howardosborne/locust_jmeter_listener)
 
 To look at other features, let’s take a [more complex example.](./more_complex_example.md)
