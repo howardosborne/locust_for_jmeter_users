@@ -1,6 +1,6 @@
 In this example we are going to buy a product from the [demo blaze shop](https://www.demoblaze.com) and in doing so, learn some more about how to do things in Locust.
 
-##Tasks, tasksets and sequential tasksets
+## Tasks, tasksets and sequential tasksets
 
 Just as samplers can be grouped together with controllers in JMeter, so tasks can be grouped with tasksets and sequential tasksets.
 
@@ -20,7 +20,7 @@ def on_start(self):
     self.purchase_id = get_uuid()
 ```
 
-##Making custom functions
+## Making custom functions
 The unique identifier for purchase id would normally be done by JavaScript running in the browser and to recreate this in JMeter, we may either use a built in function such as __UUID or make groovy script and add it as a pre-processor.
 
 With Locust, we can make a function and then call it when we need it. In this case, we create a function get_uuid
@@ -34,7 +34,7 @@ def get_uuid():
     return uuid
 ```
 
-##Naming requests
+## Naming requests
 As with JMeter, where the name field of HTTP Request determines what will appear in the name field, you can also set the name for a request.
 Add a name parameter to the request
 
@@ -44,14 +44,14 @@ Add a name parameter to the request
         self.client.get("/", name ="01 /")
 ```
 
-##Dealing with embedded resources
+## Dealing with embedded resources
 When requesting a page, you may also want to include requests to embedded resources. This doesn’t come as a standard feature in Locust, but there is a plugin in [locust plugins](https://github.com/SvenskaSpel/locust-plugins/).
 
 ```python
 pip install locust-plugins
 ```
 
-##Managing cookies and headers
+## Managing cookies and headers
 Cookies are managed for you by default, which is like having the cookie manager in JMeter always included.
 
 Both headers and cookies are stored as dictionaries in the session (referenced as self.client) and can be changed for all requests or any specific request.
@@ -71,7 +71,7 @@ response = self.client.post(self.api_host + "/viewcart", payload, headers={"Cont
 
 *To learn more about how cookies and headers are managed and manipulated, see https://requests.readthedocs.io/en/master/ 
 
-##Assertions
+## Assertions
 Assertions are made by setting catch_response to True when making a request and then evaluating the response. For example:
 ```python
 with self.client.post(self.api_host + "/deletecart", catch_response=True) as response:

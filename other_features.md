@@ -96,8 +96,8 @@ with open('name_of_csv_file.csv', newline='') as csvfile:
         #get values by field name
 ```
 
-##Monitoring
+## Monitoring
 There is no feature for capturing server metrics such as the performance monitor plugin.
 
-##Distributed testing
+## Distributed testing
 If you run distributed tests in JMeter, you can do the same in Locust. Start the master with the --master flag and for each load generator, run with the --worker and --master-host flags set.

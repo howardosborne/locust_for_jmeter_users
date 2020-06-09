@@ -2,7 +2,7 @@ To walk through the features and differences between the two, we’ll make a sim
 
 If you don’t have Locust installed, here are the [instructions](https://docs.locust.io/en/latest/installation.html):
 
-##Hello World example
+## Hello World example
 Let’s start with the simplest example - HelloWorld.
 
 A JMeter example might look like this with a thread group, a sampler and a timer.
@@ -28,7 +28,7 @@ The objects in Locust and JMeter don’t match exactly, but when we added a thre
 
 We also added a wait_time which is like a Uniform Random Timer.
 
-###Recording tests
+### Recording tests
 If you are looking for the recorder in Locust, there isn’t one.
 However if, like me, you avoid using recorders then this isn’t really a downside. But if you really do want to get a recording as a starting point, then there is a simple way of doing this.
 
@@ -61,7 +61,7 @@ As the test progresses, we can monitor progress in the statistics, charts, failu
 *One nice feature of Locust is being able to dynamically change the number of concurrent users.
 ![change user count](./images/change_user_count.png "change user count")
 
-##Analysing results
+## Analysing results
 In JMeter, we have a number of ways of viewing the results of a test. We can add a listener to view results in the GUI or output to a default listener file which can be used to produce a report or imported to other reporting tools.
 
 The results produced in Locust, in addition to the runtime charts, there are three csv files produced.
