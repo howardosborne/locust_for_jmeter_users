@@ -1,4 +1,16 @@
-##Pre and post processors
+## Setting a proxy
+Some tests need to use a proxy server.
+However, you may wish to use a tool such as Fiddler or Charles to analyse and debug the traffic between your test and the server. In which case, you would need to set the tool as a proxy.
+
+To set a proxy in Locust for all requests, add the following lines:
+```python
+#setting a proxy which is running on localhost at port 8888
+def on_start():
+self.client.proxies = { "http"  : "http://localhost:8888", "https" : "https://localhost:8888"}
+self.client.verify = False
+```
+
+## Pre and post processors
 In any task, you can write what you like before or after a request - it’s just python. When you want to add more structure and reuse code, you can make custom functions as with the get_uuid example earlier.
 
 There is also an in-built event hook system available. Here is an example:
@@ -24,7 +36,7 @@ def on_my_event(name, response):
 my_event.add_listener(on_my_event)
 ```
 
-##Other protocols
+## Other protocols
 There is a growing list of other protocols supported in plugins but a nice feature of Locust is that you can just use the User class and then can test pretty much anything. Here is an example testing a made-up ‘WidgetMaker’:
 
 ```python
@@ -52,7 +64,7 @@ class WidgetMaker:
         return random.choices(population=self.widget_quality,weights=(80,20),k=1)[0]
 ```
 
-##Variables
+## Variables
 A common frustration with JMeter is the way variables (and parameters) are stored and used. Because this is plain old python, you can store and retrieve variables of any type, in any format with any level of scope.
 
 If you are new to python, it is well worth taking some time to learn about variable scoping. Here is a nice [walkthrough](https://www.w3schools.com/python/python_scope.asp).

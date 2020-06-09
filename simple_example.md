@@ -41,8 +41,11 @@ Convert the har file to a locust file using https://pypi.org/project/har-transfo
 You also might want to consider using a tool like Charles or Fiddler to capture traffic and analyse the requests and responses.
 
 Now let’s look at running the test.
-Running Hello World test
+
+## Running a test
 Like JMeter, Locust tests can be run purely from the command line, but by default it has a Flask-based web interface to control and monitor tests as well as download results.
+
+The full details of command line parameters are [here](https://docs.locust.io/en/latest/configuration.html)
 
 To run our test using the web interface:
 ```python
@@ -65,10 +68,7 @@ As the test progresses, we can monitor progress in the statistics, charts, failu
 In JMeter, we have a number of ways of viewing the results of a test. We can add a listener to view results in the GUI or output to a default listener file which can be used to produce a report or imported to other reporting tools.
 
 The results produced in Locust, in addition to the runtime charts, there are three csv files produced.
-![Download Data](./images/downoad_data.png "Download Data")
-Download request statistics CSV
-Download failures CSV
-Download exceptions CSV
+![Download Data](./images/download_data.png "Download Data")
 
 Request statistics CSV is broadly similar to an aggregate listener in JMeter.
 

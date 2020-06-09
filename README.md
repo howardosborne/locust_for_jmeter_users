@@ -1,6 +1,6 @@
 # A guide to Locust for JMeter users
 
-This is a short guide for anyone who is familiar with JMeter and would like to learn about Locust.
+This is a short guide for anyone who is familiar with JMeter and would like to learn about Locust. The there is a feature in JMete you would like to know how to do in Locust, raise an [issue](https://github.com/howardosborne/locust_for_jmeter_users/issues).
 
 It is divided into three parts.
 
@@ -20,6 +20,7 @@ It is divided into three parts.
 3. [Other features](./other_features.md)
 
    This looks at
+   Proxies  
    Pre and post processors  
    Testing other protocols  
    CSV data  

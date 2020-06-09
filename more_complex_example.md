@@ -1,5 +1,7 @@
 In this example we are going to buy a product from the [demo blaze shop](https://www.demoblaze.com) and in doing so, learn some more about how to do things in Locust.
 
+*The code for this example is [here](./examples/more_complex_example.py)
+
 ## Tasks, tasksets and sequential tasksets
 
 Just as samplers can be grouped together with controllers in JMeter, so tasks can be grouped with tasksets and sequential tasksets.
@@ -9,8 +11,9 @@ Tasksets are used where the execution order isn’t important and sequential tas
 ```python
 class MakePurchase(SequentialTaskSet):
 ```
-Tasksets can also be nested in other tasksets and weight attributes can be set to determine the relative number of times each task is called. See the documentation for more details.
-Start up/setup
+Tasksets can also be nested in other tasksets and weight attributes can be set to determine the relative number of times each task is called. See the [documentation](https://docs.locust.io/en/latest/writing-a-locustfile.html#taskset-class) for more details.
+
+## Start up/setup
 JMeter has setUp and tearDown thread groups to carry out any initialisation activity (as well as pre and post processors), to do this in Locust, add an on_start function. In the example, we will need to provide a unique identifier.
 
 ```python
@@ -63,7 +66,7 @@ Let’s look at an example where a cookie has to be created with a unique value 
 self.client.cookies["user"] = get_uuid()
 ```
 
-A similar approach can be taken for headers. Alternatively, headers can be modified directly in a request as follows:
+A similar approach can be taken for headers, however, in this case, the headers have been modified directly in a request:
 
 ```python
 response = self.client.post(self.api_host + "/viewcart", payload, headers={"Content-Type": "application/json"},  name="08 /viewcart")
@@ -81,14 +84,5 @@ if response.content != b"Delete complete":
 When the response is marked as a failure, it is logged and presented in the failures tab
 
 ![Failures Tab](./images/failures.png "Failures Tab")
-Setting a proxy
-Some tests need to use a proxy server.
-However, you may wish to use a tool such as Fiddler to analyse and debug the traffic between your test and the server. In which case, you would need to set the tool as a proxy.
 
-To set a proxy in Locust for all requests, add the following lines:
-```python
-#setting a proxy which is running on localhost at port 8888
-def on_start():
-self.client.proxies = { "http"  : "http://localhost:8888", "https" : "https://localhost:8888"}
-self.client.verify = False
-```
+To learn about more features, see [here](./other_features.md)
