@@ -1,6 +1,6 @@
 # A guide to Locust for JMeter users
 
-This is a short guide for anyone who is familiar with JMeter and would like to learn about Locust. The there is a feature in JMete you would like to know how to do in Locust, raise an [issue](https://github.com/howardosborne/locust_for_jmeter_users/issues).
+This is a short guide for JMeter users who is interested in learning about Locust.
 
 It is divided into three parts.
 
@@ -10,7 +10,8 @@ It is divided into three parts.
 
 2. [A more complex example](./more_complex_example.md)
 
-   This goes into more detail covering the following:  
+This goes into more detail covering the following:
+
    Tasks, tasksets and sequential tasksets  
    Making custom functions  
    Naming requests  
@@ -26,3 +27,5 @@ It is divided into three parts.
    CSV data  
    Monitoring  
    Distributed testing
+
+If there is a feature in JMeter you would like to know how to do in Locust, raise an [issue](https://github.com/howardosborne/locust_for_jmeter_users/issues).
