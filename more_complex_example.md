@@ -1,6 +1,6 @@
 In this example we are going to buy a product from the [Demoblaze Shop](https://www.demoblaze.com) and in doing so, learn some more about how to do things in Locust.
 
-###### The source for this example is [here](./examples/more_complex_example.py)
+#### The source for this example is [here](./examples/more_complex_example.py)
 ```python
 from locust import HttpUser, SequentialTaskSet, task, between, events
 import logging
@@ -146,7 +146,7 @@ A similar approach can be taken for headers, however, in this case, the headers 
 response = self.client.post(self.api_host + "/viewcart", payload, headers={"Content-Type": "application/json"},  name="08 /viewcart")
 ```
 
-*To learn more about how cookies and headers are managed and manipulated, see the [requests page](https://requests.readthedocs.io/en/master/)
+#### To learn more about how cookies and headers are managed and manipulated, see the [requests page](https://requests.readthedocs.io/en/master/)
 
 ## Assertions
 Assertions are made by setting catch_response to True when making a request and then evaluating the response. For example:

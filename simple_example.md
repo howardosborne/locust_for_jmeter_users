@@ -1,8 +1,8 @@
 To walk through the features and differences between the two, we’ll make a simple test.
 
-###### The code for this and other examples can be found [here](./examples)
+#### The code for this and other examples can be found [here](./examples)
 
-###### If you don’t already have Locust installed, the download instructions are [here](https://docs.locust.io/en/latest/installation.html)
+#### If you don’t already have Locust installed, the download instructions are [here](https://docs.locust.io/en/latest/installation.html)
 
 ## Hello World example
 Let’s start with the simplest example - HelloWorld.
@@ -87,6 +87,6 @@ However, if you have been using JMeter for a while, you may have already develop
 
 To get a report similar to the default JMeter listener, with a record for each request made, you can use the jmeter listener plugin from [locust-plugins](https://github.com/SvenskaSpel/locust-plugins/blob/master/locust_plugins/jmeter_listener.py).
 
-###### Note: This does not report status codes (a current limitation in Locust event reporting). If you wish to get the JMeter format with status codes, try [this](https://github.com/howardosborne/locust_jmeter_listener)
+#### Note: This does not report status codes (a current limitation in Locust event reporting). If you wish to get the JMeter format with status codes, try [this](https://github.com/howardosborne/locust_jmeter_listener)
 
 Let’s look at [another example.](./more_complex_example.md)
