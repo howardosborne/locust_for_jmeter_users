@@ -1,6 +1,8 @@
 To walk through the features and differences between the two, we’ll make a simple test.
 
-If you don’t have Locust installed, here are the [instructions](https://docs.locust.io/en/latest/installation.html):
+###### The code for this and other examples can be found [here](./examples)
+
+###### If you don’t already have Locust installed, the download instructions are [here](https://docs.locust.io/en/latest/installation.html)
 
 ## Hello World example
 Let’s start with the simplest example - HelloWorld.
@@ -23,7 +25,7 @@ class HelloWorld(HttpUser):
     def test(self):
         self.client.get("/")
 ```
-*The code for this can be found [here](./examples/simple_example.py)
+
 
 The objects in Locust and JMeter don’t match exactly, but when we added a thread group and an HTTP sampler in JMeter, in Locust we added a class based on HttpUser and a task (which is a function with a @task decorator).
 
@@ -38,7 +40,7 @@ Use the developer tools in your browser to capture what you need and save the re
 
 ![Save as HAR](./images/save_as_har.png "Save as HAR")
 
-Convert the har file to a locust file using https://pypi.org/project/har-transformer/
+Convert the har file to a locust file using the [har-transformer](https://pypi.org/project/har-transformer/)
 
 You also might want to consider using a tool like [Fiddler](https://www.telerik.com/fiddler) or [Charles](https://www.charlesproxy.com/) to capture traffic and analyse the requests and responses.
 
@@ -59,7 +61,11 @@ Then browse the web interface, by default at http://localhost:8089
 
 Here we can set how many users, and the rate to ramp up, which we would have set in the thread group in JMeter. You also set the host here. As with JMeter, you can feed these values in from the command line.
 
-As the test progresses, we can monitor progress in the statistics, charts, failures and exceptions windows.
+```python
+ locust -f ".\examples\simple_example.py" -u 100 -r 1 --host "https//demoblaze.com"
+```
+
+As the test progresses, we can monitor responses in the statistics, charts, failures and exceptions windows.
 
 ![charts](./images/vscode_web_charts.png "charts")
 
@@ -68,9 +74,9 @@ A nice feature of Locust is being able to dynamically change the number of concu
 ![change user count](./images/change_user_count.png "change user count")
 
 ## Analysing results
-In JMeter, we have a number of ways of viewing the results of a test. We can add a listener to view results in the GUI or output to a default listener file which can be used to produce a report or imported to other reporting tools.
+In JMeter, listeners can be added to view results in the GUI or output to a listener file to produce a report or imported to other reporting tools.
 
-In addition to the runtime charts, Locust produces three csv files.
+With Locust, in addition to the runtime charts, three csv files are produced:
 ![Download Data](./images/download_data.png "Download Data")
 
 Request statistics CSV is broadly similar to an aggregate listener in JMeter, providing summary information for each task.
@@ -79,6 +85,8 @@ The failures and exceptions CSVs provide details of, unsurprisingly, failures an
 
 However, if you have been using JMeter for a while, you may have already developed dashboards and reports based on the JMeter format and wish to reuse them.
 
-To get a report similar to the default JMeter listener, with a record for each request made, you can use the jmeter listener plugin from [locust-plugins](https://github.com/SvenskaSpel/locust-plugins/blob/master/locust_plugins/jmeter_listener.py). Note: This does not report status codes (a current limitation in Locust event reporting). If you wish to get the JMeter format with status codes, try [this](https://github.com/howardosborne/locust_jmeter_listener)
+To get a report similar to the default JMeter listener, with a record for each request made, you can use the jmeter listener plugin from [locust-plugins](https://github.com/SvenskaSpel/locust-plugins/blob/master/locust_plugins/jmeter_listener.py).
 
-To look at other features, let’s take a [more complex example.](./more_complex_example.md)
+###### Note: This does not report status codes (a current limitation in Locust event reporting). If you wish to get the JMeter format with status codes, try [this](https://github.com/howardosborne/locust_jmeter_listener)
+
+Let’s look at [another example.](./more_complex_example.md)

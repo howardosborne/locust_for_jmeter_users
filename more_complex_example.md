@@ -1,6 +1,77 @@
-In this example we are going to buy a product from the [demo blaze shop](https://www.demoblaze.com) and in doing so, learn some more about how to do things in Locust.
+In this example we are going to buy a product from the [Demoblaze Shop](https://www.demoblaze.com) and in doing so, learn some more about how to do things in Locust.
 
-*The full code for this example is [here](./examples/more_complex_example.py)
+###### The source for this example is [here](./examples/more_complex_example.py)
+```python
+from locust import HttpUser, SequentialTaskSet, task, between, events
+import logging
+
+import json, random, string
+
+class MakePurchase(SequentialTaskSet):
+    
+    def on_start(self):
+        self.purchase_id = get_uuid()
+
+    @task
+    def home(self):
+        self.client.get("/", name ="01 /")
+
+    @task
+    def get_config_json(self):
+        response = self.client.get("/config.json", name="02 /config.json")
+        response_json = json.loads(response.text)
+        self.api_host = response_json["API_URL"]
+
+    @task
+    def get_item(self):
+        response = self.client.get(self.api_host + "/entries", name="03 /entries")
+        response_json = json.loads(response.text)
+        self.id = response_json["Items"][0]["id"]
+
+    @task
+    def view_product(self):
+        self.client.cookies["user"] = get_uuid()
+        response = self.client.get("/prod.html?idp_=" + str(self.id), name="04 /prod.html?idp_")
+
+    @task
+    def view(self):
+        payload = '{"id":"' + str(self.id) + '"}'
+        response = self.client.post(self.api_host + "/view", payload , headers={"Content-Type": "application/json"}, name="05 /view")
+
+    @task
+    def add_to_cart(self):
+        payload = '{"id":"' + self.purchase_id + '","cookie":"user=' + self.user_cookie + '","prod_id":' + str(self.id) + ',"flag":false}'
+        response = self.client.post(self.api_host + "/addtocart", payload, headers={"Content-Type": "application/json"},  name="06 /addtocart")
+
+    @task
+    def view_cart(self):
+        response = self.client.get("/cart.html", name="07 /cart.html")
+
+    @task
+    def post_cart(self):
+        payload = '{"cookie":"user=' + self.user_cookie + '","flag":false}'
+        response = self.client.post(self.api_host + "/viewcart", payload, headers={"Content-Type": "application/json"},  name="08 /viewcart")
+
+    @task
+    def delete_item(self):
+        payload = '{"cookie":"user=' + self.user_cookie + '"}'
+        #response = self.client.post(self.api_host + "/deletecart", payload, headers={"Content-Type": "application/json"},  name="09 /deletecart", catch_response=True)
+        with self.client.post(self.api_host + "/deletecart", payload, headers={"Content-Type": "application/json"},  name="09 /deletecart", catch_response=True) as response:
+            if response.content != b"Delete complete":
+                response.failure("delete incomplete")
+
+class DemoBlazePurchaser(HttpUser):
+    wait_time = between(2, 5)
+    tasks = [MakePurchase]
+
+def get_uuid():
+    #make a random string
+    r_s = ''.join(random.choices(string.ascii_lowercase + string.digits, k=32))
+    #turn it into a uuid
+    uuid = r_s[:8] + "-" + r_s[8:12] + "-" + r_s[12:16] + "-" + r_s[16:20] + "-" + r_s[20:32]
+    return uuid
+```
+
 
 ## Tasks, tasksets and sequential tasksets
 
@@ -11,7 +82,7 @@ Tasksets are used where the execution order isn’t important and sequential tas
 ```python
 class MakePurchase(SequentialTaskSet):
 ```
-Tasksets can also be nested in other tasksets and weight attributes can be set to determine the relative number of times each task is called. See the [documentation](https://docs.locust.io/en/latest/writing-a-locustfile.html#taskset-class) for more details.
+Tasksets can also be nested in other tasksets and weight attributes can be set to determine the relative number of times each task is called. More details are in the [Locust documentation](https://docs.locust.io/en/latest/writing-a-locustfile.html#taskset-class).
 
 ## Start up/setup
 JMeter has setUp and tearDown thread groups to carry out any initialisation activity (as well as pre and post processors), to do this in Locust, add an on_start function. In the example, we will need to provide a unique identifier.
