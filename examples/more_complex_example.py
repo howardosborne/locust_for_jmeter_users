@@ -51,7 +51,6 @@ class MakePurchase(SequentialTaskSet):
     @task
     def delete_item(self):
         payload = '{"cookie":"user=' + self.user_cookie + '"}'
-        #response = self.client.post(self.api_host + "/deletecart", payload, headers={"Content-Type": "application/json"},  name="09 /deletecart", catch_response=True)
         with self.client.post(self.api_host + "/deletecart", payload, headers={"Content-Type": "application/json"},  name="09 /deletecart", catch_response=True) as response:
             if response.content != b"Delete complete":
                 response.failure("delete incomplete")
@@ -63,6 +62,6 @@ class DemoBlazePurchaser(HttpUser):
 def get_uuid():
     #make a random string
     r_s = ''.join(random.choices(string.ascii_lowercase + string.digits, k=32))
-    #turn it into a uuid
+    #return it in a 'uuid' format
     uuid = r_s[:8] + "-" + r_s[8:12] + "-" + r_s[12:16] + "-" + r_s[16:20] + "-" + r_s[20:32]
     return uuid

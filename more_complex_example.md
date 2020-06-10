@@ -55,7 +55,6 @@ class MakePurchase(SequentialTaskSet):
     @task
     def delete_item(self):
         payload = '{"cookie":"user=' + self.user_cookie + '"}'
-        #response = self.client.post(self.api_host + "/deletecart", payload, headers={"Content-Type": "application/json"},  name="09 /deletecart", catch_response=True)
         with self.client.post(self.api_host + "/deletecart", payload, headers={"Content-Type": "application/json"},  name="09 /deletecart", catch_response=True) as response:
             if response.content != b"Delete complete":
                 response.failure("delete incomplete")
@@ -67,14 +66,12 @@ class DemoBlazePurchaser(HttpUser):
 def get_uuid():
     #make a random string
     r_s = ''.join(random.choices(string.ascii_lowercase + string.digits, k=32))
-    #turn it into a uuid
+    #return it in a 'uuid' format
     uuid = r_s[:8] + "-" + r_s[8:12] + "-" + r_s[12:16] + "-" + r_s[16:20] + "-" + r_s[20:32]
     return uuid
 ```
 
-
 ## Tasks, tasksets and sequential tasksets
-
 Just as samplers can be grouped together with controllers in JMeter, so tasks can be grouped with tasksets and sequential tasksets.
 
 Tasksets are used where the execution order isn’t important and sequential tasksets where it does matter. In this example, order matters so we are adding a sequential taskset.
@@ -85,7 +82,7 @@ class MakePurchase(SequentialTaskSet):
 Tasksets can also be nested in other tasksets and weight attributes can be set to determine the relative number of times each task is called. More details are in the [Locust documentation](https://docs.locust.io/en/latest/writing-a-locustfile.html#taskset-class).
 
 ## Start up/setup
-JMeter has setUp and tearDown thread groups to carry out any initialisation activity (as well as pre and post processors), to do this in Locust, add an on_start function. In the example, we will need to provide a unique identifier.
+JMeter has setUp and tearDown thread groups to carry out any initialisation activity (as well as pre and post processors), to do this in Locust, add an on_start function. In the example, we will need to provide a unique identifier as a purchase id.
 
 ```python
 class MakePurchase(SequentialTaskSet):
@@ -103,7 +100,7 @@ With Locust, we can make a function and then call it when we need it. In this ca
 def get_uuid():
     #make a random string
     r_s = ''.join(random.choices(string.ascii_lowercase + string.digits, k=32))
-    #turn it into a uuid
+    #return it in a 'uuid' format
     uuid = r_s[:8] + "-" + r_s[8:12] + "-" + r_s[12:16] + "-" + r_s[16:20] + "-" + r_s[20:32]
     return uuid
 ```
@@ -126,7 +123,7 @@ Like Locust, Locust plugins can be installed using pip
 ```python
 pip install locust-plugins
 ```
-If you would like to learn how to include resources without using the plugin, an explanation is provided [here](./embedded_resource_example.md)
+However, if you would like to learn how to write the code to include embedded resources, an explanation is provided [here](./embedded_resource_example.md)
 
 ## Managing cookies and headers
 Cookies are managed for you by default, which is like having the cookie manager in JMeter always included.

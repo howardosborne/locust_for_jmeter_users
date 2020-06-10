@@ -1,8 +1,6 @@
 To walk through the features and differences between the two, we’ll make a simple test.
 
-#### The code for this and other examples can be found [here](./examples)
-
-#### If you don’t already have Locust installed, the download instructions are [here](https://docs.locust.io/en/latest/installation.html)
+The code for this and other examples can be found [here](./examples) and if you don’t already have Locust installed, the download instructions are [here](https://docs.locust.io/en/latest/installation.html).
 
 ## Hello World example
 Let’s start with the simplest example - HelloWorld.
@@ -29,12 +27,12 @@ class HelloWorld(HttpUser):
 
 The objects in Locust and JMeter don’t match exactly, but when we added a thread group and an HTTP sampler in JMeter, in Locust we added a class based on HttpUser and a task (which is a function with a @task decorator).
 
-We also added a wait_time which is like a Uniform Random Timer.
+We also added a wait_time which is like a [Uniform Random Timer](https://jmeter.apache.org/usermanual/component_reference.html#Uniform_Random_Timer).
 
 ### Recording tests
 If you are looking for the recorder in Locust, there isn’t one.
 
-However, if you really do want to get a recording as a starting point, then there is a simple way of doing this.
+However, if you really do want to get a recording as a starting point, then there is a way of doing this.
 
 Use the developer tools in your browser to capture what you need and save the recording as a har file.
 
@@ -74,7 +72,7 @@ A nice feature of Locust is being able to dynamically change the number of concu
 ![change user count](./images/change_user_count.png "change user count")
 
 ## Analysing results
-In JMeter, listeners can be added to view results in the GUI or output to a listener file to produce a report or imported to other reporting tools.
+In JMeter, listeners can be added to view results in the GUI or output to a listener file to produce an html report or imported to other reporting tools.
 
 With Locust, in addition to the runtime charts, three csv files are produced:
 ![Download Data](./images/download_data.png "Download Data")

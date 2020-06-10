@@ -74,7 +74,7 @@ A common frustration with JMeter is the way variables (and parameters) are store
 If you are new to python, it is well worth taking some time to learn about variable scoping. Here is a nice [walkthrough](https://www.w3schools.com/python/python_scope.asp).
 
 ## CSV data
-In JMeter you may well have driven your tests using the CSV Data Set Config.
+In JMeter you may well have driven your tests using the [CSV Data Set Config](https://jmeter.apache.org/usermanual/component_reference.html#CSV_Data_Set_Config).
 To get the same functionality in Locust you have a couple of options.
 First there is a csv plugin available at [locust-plugins](https://github.com/SvenskaSpel/locust-plugins/). This plugin makes use of the [csv library](https://docs.python.org/3/library/csv.html) and provides an iterator to loop through the csv file and when it reaches the end of the file, return to the beginning.
 The code for this is below.
