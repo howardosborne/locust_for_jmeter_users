@@ -26,7 +26,8 @@ class MakePurchase(SequentialTaskSet):
 
     @task
     def view_product(self):
-        self.client.cookies["user"] = get_uuid()
+        self.user_cookie = get_uuid()
+        self.client.cookies["user"] = self.user_cookie
         response = self.client.get("/prod.html?idp_=" + str(self.id), name="04 /prod.html?idp_")
 
     @task

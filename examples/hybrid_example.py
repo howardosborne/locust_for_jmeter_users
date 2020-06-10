@@ -1,4 +1,4 @@
-from locust import User, task, constant
+from locust import User, task, constant, events
 import time
 import random
 
@@ -25,3 +25,4 @@ class WidgetMaker:
     def get_widget(self):
         time.sleep(random.randint(1,5))
         return random.choices(population=self.widget_quality,weights=(80,20),k=1)[0]
+
