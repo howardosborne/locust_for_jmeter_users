@@ -1,10 +1,13 @@
 ## adding transactions
 In some circumstances it makes sense to think about performance in terms of transactions which means capturing the elapsed time across several requests.
-To assist with this, there is a Transaction Manager in [plugins](./examples/plugins).
+
+To assist with this, there is a [Transaction Manager plugin](./examples/plugins).
+
 An full example is provided in [examples](./examples)
-There are two functions:
-   start_transaction
-   end_transaction
+
+There are two functions:   
+   start_transaction   
+   end_transaction   
 
 ```python
 #when starting a transaction save the id returned as a variable to be used to end the transaction
@@ -25,5 +28,5 @@ There are two endpoints:
    To get all results
 
 ## running headless
-if you want to run the test headess, you can get the results by adding the command line argument --log_transactions_in_file True
+if you want to run the test headless, you can get the results by adding the command line argument --log_transactions_in_file True
 by default it will be False
