@@ -5,7 +5,7 @@ To assist with this, there is a [Transaction Manager plugin](./examples/plugins)
 
 An full example is provided in [examples](./examples)
 
-There are two functions:   
+There are two methods:   
    start_transaction   
    end_transaction   
 
