@@ -20,7 +20,8 @@ This is a short guide for [JMeter](https://jmeter.apache.org/) users who are int
 
    Proxies  
    Pre and post processors  
-   Testing other protocols  
+   Testing other protocols
+   Using Webdriver
    CSV data  
    Monitoring  
    Distributed testing
